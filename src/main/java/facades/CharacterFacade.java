@@ -1,6 +1,9 @@
 package facades;
 
+import dtos.CharacterDTO;
+import dtos.RenameMeDTO;
 import entities.Character;
+import entities.RenameMe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,6 +36,19 @@ public class CharacterFacade {
         TypedQuery<Character> query = em.createQuery("SELECT c FROM Character c", Character.class);
         List<Character> characters = query.getResultList();
         return characters;
+    }
+
+    public CharacterDTO create(CharacterDTO characterDTO){
+        Character character = new Character(characterDTO.getName(), characterDTO.getDescription(), characterDTO.getImageSource());
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(character);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new CharacterDTO(character);
     }
 
 }
