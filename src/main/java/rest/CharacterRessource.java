@@ -22,7 +22,6 @@ public class CharacterRessource {
     private static final CharacterFacade FACADE =  CharacterFacade.getCharacterFacade(EMF);
     private static final Gson GSON = new Gson();
 
-    @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
@@ -31,7 +30,7 @@ public class CharacterRessource {
         return GSON.toJson(characterDTOS);
     }
 
-    @Path("id/{id}")
+    @Path("{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getCharacterById(@PathParam("id") long id) {
