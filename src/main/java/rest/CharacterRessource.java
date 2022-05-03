@@ -20,7 +20,7 @@ import java.util.List;
 public class CharacterRessource {
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
     private static final CharacterFacade FACADE =  CharacterFacade.getCharacterFacade(EMF);
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new Gson();
 
     @Path("all")
     @GET
