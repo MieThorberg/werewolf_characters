@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("characters")
-public class CharacterRessource {
+public class CharacterResource {
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
     private static final CharacterFacade FACADE =  CharacterFacade.getCharacterFacade(EMF);
     private static final Gson GSON = new Gson();
