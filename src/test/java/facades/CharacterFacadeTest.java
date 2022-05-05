@@ -39,8 +39,8 @@ class CharacterFacadeTest {
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Character.deleteAllRows").executeUpdate();
-            em.persist(new Character("name1", "description1", "imagesource1"));
-            em.persist(new Character("name2", "description2", "imagesource2"));
+            em.persist(new Character("name1", "description1", "imagesource1", 0, 1, "none"));
+            em.persist(new Character("name2", "description2", "imagesource2", 0, 1, "none"));
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -54,7 +54,7 @@ class CharacterFacadeTest {
 
     @Test
     void createTest() {
-        CharacterDTO characterDTO = new CharacterDTO(new Character("name3", "description3", "imagesource3"));
+        CharacterDTO characterDTO = new CharacterDTO(new Character("name3", "description3", "imagesource3", 0, 1, "none"));
         facade.create(characterDTO);
         assertEquals(3, facade.getAll().size());
     }

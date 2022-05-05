@@ -20,8 +20,8 @@ public class Populator {
     public static void populate(){
         EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
         CharacterFacade characterFacade = CharacterFacade.getCharacterFacade(emf);
-        Character character = new Character("werewolf", "whrrrr", "?");
-        Character character1 = new Character("villager", "arrhh", "?");
+        Character character = new Character("werewolf", "whrrrr", "?", 0, 1, "eat villager");
+        Character character1 = new Character("villager", "arrhh", "?", 0, 1, "none");
         characterFacade.create(new CharacterDTO(character));
         characterFacade.create(new CharacterDTO(character1));
 

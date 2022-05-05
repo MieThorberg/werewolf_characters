@@ -39,7 +39,7 @@ public class CharacterFacade {
     }
 
     public CharacterDTO create(CharacterDTO characterDTO){
-        Character character = new Character(characterDTO.getName(), characterDTO.getDescription(), characterDTO.getImageSource());
+        Character character = new Character(characterDTO);
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

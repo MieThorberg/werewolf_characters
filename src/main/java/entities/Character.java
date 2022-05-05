@@ -1,5 +1,7 @@
 package entities;
 
+import dtos.CharacterDTO;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -25,13 +27,39 @@ public class Character implements Serializable {
     @Column(name = "image")
     private String imageSource;
 
+    //TODO: minPlayers, max, abbilities
+    @NotNull
+    @Column(name = "minplayers")
+    private int minPlayers;
+
+    @NotNull
+    @Column(name = "max")
+    private int max;
+
+    @NotNull
+    @Column(name = "ability")
+    private String ability;
+
+
     public Character() {
     }
 
-    public Character(String name, String description, String imageSource) {
+    public Character(String name, String description, String imageSource, int minPlayers, int max, String ability) {
         this.name = name;
         this.description = description;
         this.imageSource = imageSource;
+        this.minPlayers = minPlayers;
+        this.max = max;
+        this.ability = ability;
+    }
+
+    public Character(CharacterDTO characterDTO) {
+        this.name = characterDTO.getName();
+        this.description = characterDTO.getDescription();
+        this.imageSource = characterDTO.getImageSource();
+        this.minPlayers = characterDTO.getMinPlayers();
+        this.max = characterDTO.getMax();
+        this.ability = characterDTO.getAbility();
     }
 
     public Long getId() {
@@ -64,5 +92,29 @@ public class Character implements Serializable {
 
     public void setImageSource(String imageSource) {
         this.imageSource = imageSource;
+    }
+
+    public int getMinPlayers() {
+        return minPlayers;
+    }
+
+    public void setMinPlayers(int minPlayers) {
+        this.minPlayers = minPlayers;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public String getAbility() {
+        return ability;
+    }
+
+    public void setAbility(String ability) {
+        this.ability = ability;
     }
 }
