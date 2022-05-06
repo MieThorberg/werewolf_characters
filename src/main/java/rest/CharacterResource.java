@@ -30,11 +30,11 @@ public class CharacterResource {
         return GSON.toJson(characterDTOS);
     }
 
-    @Path("{id}")
+    @Path("{name}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getCharacterById(@PathParam("id") long id) {
-        Character character = FACADE.getCharacterById(id);
+    public String getCharacterById(@PathParam("name") String name) {
+        Character character = FACADE.getCharacterByName(name);
         CharacterDTO characterDTO = new CharacterDTO(character);
         return GSON.toJson(characterDTO);
     }
