@@ -25,7 +25,6 @@ public class CharacterDTO {
     }
 
     public CharacterDTO(Character character) {
-        this.id = character.getId();
         this.name = character.getName();
         this.description = character.getDescription();
         this.imageSource = character.getImageSource();

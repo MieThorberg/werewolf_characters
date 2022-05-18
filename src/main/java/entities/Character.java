@@ -11,10 +11,8 @@ import java.io.Serializable;
 @NamedQuery(name = "Character.deleteAllRows", query = "DELETE from Character")
 public class Character implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    @Id
     @NotNull
     @Column(name = "name")
     private String name;
@@ -60,14 +58,6 @@ public class Character implements Serializable {
         this.minPlayers = characterDTO.getMinPlayers();
         this.max = characterDTO.getMax();
         this.ability = characterDTO.getAbility();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

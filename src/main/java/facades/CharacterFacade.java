@@ -25,9 +25,9 @@ public class CharacterFacade {
         return instance;
     }
 
-    public Character getCharacterById(long id) {
+    public Character getCharacterByName(String name) {
         EntityManager em = emf.createEntityManager();
-        Character character = em.find(Character.class, id);
+        Character character = em.find(Character.class, name);
         return character;
     }
 
