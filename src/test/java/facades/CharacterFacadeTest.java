@@ -15,7 +15,6 @@ import javax.persistence.EntityManagerFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterFacadeTest {
-
     private static EntityManagerFactory emf;
     private static CharacterFacade facade;
 
